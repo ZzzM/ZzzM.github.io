@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png">
+  <link rel="mask-icon" href="/images/avatar.png" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="这是一个基于豆瓣电影Api 使用 Flutter 开发的App。  flutter: Channel stable, v1.17.1 运行环境：iOS 8.0 或以上（暂未适配 Android） 项目地址  预览 日间模式      夜间模式        依赖库 flutter_i18n: ^0.8.3 cached_network_image: ^2.0.0 dio: ^3.0.8 cuper">
+  <meta name="description" content="这是一个基于豆瓣电影Api 使用 Flutter 开发的App。  flutter: Channel stable, v1.17.1 运行环境：iOS 8.0 或以上（暂未适配 Android） 项目地址">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flutter Movies">
+<meta property="og:title" content="Mobile App - Flutter Movies">
 <meta property="og:url" content="http://yoursite.com/2020/02/26/flutter-movies/index.html">
 <meta property="og:site_name" content="Zzzm&#39;s Blog">
-<meta property="og:description" content="这是一个基于豆瓣电影Api 使用 Flutter 开发的App。  flutter: Channel stable, v1.17.1 运行环境：iOS 8.0 或以上（暂未适配 Android） 项目地址  预览 日间模式      夜间模式        依赖库 flutter_i18n: ^0.8.3 cached_network_image: ^2.0.0 dio: ^3.0.8 cuper">
+<meta property="og:description" content="这是一个基于豆瓣电影Api 使用 Flutter 开发的App。  flutter: Channel stable, v1.17.1 运行环境：iOS 8.0 或以上（暂未适配 Android） 项目地址">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/02/26/flutter-movies/light1.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/26/flutter-movies/light2.png">
@@ -36,8 +36,11 @@
 <meta property="og:image" content="http://yoursite.com/2020/02/26/flutter-movies/dark3.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/26/flutter-movies/dark4.png">
 <meta property="article:published_time" content="2020-02-26T07:29:02.000Z">
-<meta property="article:modified_time" content="2020-07-07T02:25:21.001Z">
+<meta property="article:modified_time" content="2020-07-22T03:38:18.809Z">
 <meta property="article:author" content="ZzzM">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/02/26/flutter-movies/light1.png">
 
@@ -54,7 +57,7 @@
   };
 </script>
 
-  <title>Flutter Movies | Zzzm's Blog</title>
+  <title>Mobile App - Flutter Movies | Zzzm's Blog</title>
   
 
 
@@ -182,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Flutter Movies
+          Mobile App - Flutter Movies
         </h1>
 
         <div class="post-meta">
@@ -199,7 +202,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-07 10:25:21" itemprop="dateModified" datetime="2020-07-07T10:25:21+08:00">2020-07-07</time>
+                <time title="修改时间：2020-07-22 11:38:18" itemprop="dateModified" datetime="2020-07-22T11:38:18+08:00">2020-07-22</time>
               </span>
 
           
@@ -233,6 +236,8 @@
 <li>运行环境：iOS 8.0 或以上（暂未适配 Android）</li>
 <li><a href="https://github.com/ZzzM/Flutter-Movies" target="_blank" rel="noopener">项目地址</a></li>
 </ul>
+<a id="more"></a>
+
 <h1 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h1><ul>
 <li><p>日间模式</p>
 <img src="/2020/02/26/flutter-movies/light1.png">
@@ -275,6 +280,11 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+              <a href="/tags/Android/" rel="tag"># Android</a>
+          </div>
 
         
 
@@ -282,12 +292,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/25/rn-movies/" rel="prev" title="ReactNative Movies">
-      <i class="fa fa-chevron-left"></i> ReactNative Movies
+    <a href="/2020/02/25/rn-movies/" rel="prev" title="Mobile App - ReactNative Movies">
+      <i class="fa fa-chevron-left"></i> Mobile App - ReactNative Movies
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/07/07/calendar/" rel="next" title="LunarCalendar">
-      LunarCalendar <i class="fa fa-chevron-right"></i>
+    <a href="/2020/07/07/calendar/" rel="next" title="Mac App - LunarCalendar">
+      Mac App - LunarCalendar <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -371,7 +381,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -408,7 +418,7 @@
   &copy; 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-apple"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ZzzM</span>
 </div>

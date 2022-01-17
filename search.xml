@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>算法·比较版本号</title>
+      <link href="/2022/01/17/algorithm_compareVersion/"/>
+      <url>/2022/01/17/algorithm_compareVersion/</url>
+      
+        <content type="html"><![CDATA[<div class="note info modern"><p><em>如果 version1 &gt; version2 返回 1</em><br><em>如果 version1 &lt; version2 返回 -1</em><br><em>除此之外返回 0</em></p></div><div class="note success simple"><p>输入：version1 = “1.01”, version2 = “1.001”<br>输出：0<br>解释：忽略前导零，”01” 和 “001” 都表示相同的整数 “1”</p></div><div class="note success simple"><p>输入：version1 = “1.0”, version2 = “1.0.0”<br>输出：0<br>解释：version1 没有指定下标为 2 的修订号，即视为 “0”</p></div><div class="note success simple"><p>输入：version1 = “0.1”, version2 = “1.1”<br>输出：-1<br>解释：version1 中下标为 0 的修订号是 “0”，version2 中下标为 0 的修订号是 “1” 。0 &lt; 1，所以 version1 &lt; version2</p></div><div class="note success simple"><p>输入：version1 = “1.0.1”, version2 = “1”<br>输出：1</p></div><div class="note success simple"><p>输入：version1 = “7.5.2.4”, version2 = “7.5.3”<br>输出：-1</p></div><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">compareVersion</span>(<span class="keyword">_</span> <span class="params">version1</span>: <span class="type">String</span>, <span class="keyword">_</span> <span class="params">version2</span>: <span class="type">String</span>)</span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> nums1 <span class="operator">=</span> version1.split(separator: <span class="string">&quot;.&quot;</span>),</span><br><span class="line">        nums2 <span class="operator">=</span> version2.split(separator: <span class="string">&quot;.&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="operator">!</span>nums1.isEmpty <span class="operator">||</span> <span class="operator">!</span>nums2.isEmpty &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> v1 <span class="operator">=</span> nums1.isEmpty <span class="operator">?</span> <span class="number">0</span>: <span class="type">Int</span>(nums1.removeFirst()) <span class="operator">??</span> <span class="number">0</span>,</span><br><span class="line">            v2 <span class="operator">=</span> nums2.isEmpty <span class="operator">?</span> <span class="number">0</span>: <span class="type">Int</span>(nums2.removeFirst()) <span class="operator">??</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> v1 <span class="operator">==</span> v2 &#123; <span class="keyword">continue</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> v1 <span class="operator">&gt;</span> v2 <span class="operator">?</span> <span class="number">1</span>:<span class="operator">-</span><span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+          <category> Swift </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift </tag>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算法·电话号码的字母组合</title>
+      <link href="/2022/01/17/algorithm_letter_digits/"/>
+      <url>/2022/01/17/algorithm_letter_digits/</url>
+      
+        <content type="html"><![CDATA[<div class="note info modern"><p>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按<strong>任意顺序</strong>返回。给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/11/09/200px-telephone-keypad2svg.png"></p></div><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> letters <span class="operator">=</span> [<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;def&quot;</span>, <span class="string">&quot;ghi&quot;</span>, <span class="string">&quot;jkl&quot;</span>, <span class="string">&quot;mno&quot;</span>, <span class="string">&quot;pqrs&quot;</span>, <span class="string">&quot;tuv&quot;</span>, <span class="string">&quot;wxyz&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">letterCombinations</span>(<span class="keyword">_</span> <span class="params">digits</span>: <span class="type">String</span>)</span> -&gt; [<span class="type">String</span>] &#123;</span><br><span class="line">        <span class="keyword">if</span> digits.isEmpty &#123; <span class="keyword">return</span> [] &#125;</span><br><span class="line">        <span class="keyword">var</span> res: [<span class="type">String</span>] <span class="operator">=</span> [], temp: [<span class="type">Character</span>] <span class="operator">=</span> []</span><br><span class="line">        backtrack(res: <span class="operator">&amp;</span>res, temp: <span class="operator">&amp;</span>temp, digits: <span class="type">Array</span>(digits), index: <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">backtrack</span>(<span class="params">res</span>: <span class="keyword">inout</span> [<span class="type">String</span>], <span class="params">temp</span>: <span class="keyword">inout</span> [<span class="type">Character</span>], <span class="params">digits</span>: [<span class="type">Character</span>], <span class="params">index</span>: <span class="type">Int</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> index <span class="operator">&lt;</span> digits.count <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> res.append(<span class="type">String</span>(temp))</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> digit <span class="operator">=</span> digits[index].hexDigitValue<span class="operator">!</span> <span class="operator">-</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> val <span class="keyword">in</span> letters[digit] &#123;</span><br><span class="line">            temp.append(val)</span><br><span class="line">            backtrack(res: <span class="operator">&amp;</span>res, temp: <span class="operator">&amp;</span>temp, digits: digits, index: index <span class="operator">+</span> <span class="number">1</span>)</span><br><span class="line">            temp.popLast()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+          <category> Swift </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift </tag>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Bingpaper</title>
+      <link href="/2022/01/17/bingpaper/"/>
+      <url>/2022/01/17/bingpaper/</url>
+      
+        <content type="html"><![CDATA[<p>一个实用的 iOS Bing 壁纸 App</p><ul><li><input checked="" disabled="" type="checkbox"> 小组件</li><li><input checked="" disabled="" type="checkbox"> 主题切换</li><li><input checked="" disabled="" type="checkbox"> App 和小组件配色同步</li><li><input checked="" disabled="" type="checkbox"> SwiftUI/ Async / Await</li></ul><p>🌟 <em><a href="https://github.com/ZzzM/Bingpaper">GitHub</a></em></p><h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>设备需装有 <strong>iOS 15.0</strong> 或更高版本</p><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/Bingpaper/master/assets/l01.png"><br><img src="https://raw.githubusercontent.com/ZzzM/Bingpaper/master/assets/l02.png"><br><img src="https://raw.githubusercontent.com/ZzzM/Bingpaper/master/assets/d01.png"><br><img src="https://raw.githubusercontent.com/ZzzM/Bingpaper/master/assets/d02.png"></p>          </div><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/Bingpaper/master/assets/p01.png"><br><img src="https://raw.githubusercontent.com/ZzzM/Bingpaper/master/assets/p02.png"><br><img src="https://raw.githubusercontent.com/ZzzM/Bingpaper/master/assets/w01.png"><br><img src="https://raw.githubusercontent.com/ZzzM/Bingpaper/master/assets/w02.png"></p>          </div><h2 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h2><ul><li><a href="https://github.com/onevcat/Kingfisher"><em>Kingfisher</em></a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> App </category>
+          
+          <category> Swift </category>
+          
+          <category> SwiftUI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> SwiftUI </tag>
+            
+            <tag> App </tag>
+            
+            <tag> Widget </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算法·验证字符串是否是有效的 IPv4 或 IPv6 地址</title>
+      <link href="/2020/07/29/algorithm_ip/"/>
+      <url>/2020/07/29/algorithm_ip/</url>
+      
+        <content type="html"><![CDATA[<div class="note info modern"><p><strong>IPv4 地址</strong><br><em>由十进制数和点来表示，每个地址包含4个十进制数，其范围为 0 - 255， 用 <code>(&quot;.&quot;)</code> 分割</em><br><em>不会以 0 开头</em></p></div><div class="note success simple"><p>172.16.254.1</p></div><div class="note danger simple"><p>172.16.254.01</p></div><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isValidIPv4</span>(<span class="keyword">_</span> <span class="params">ip</span>: <span class="type">String</span>)</span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> parts <span class="operator">=</span> ip.components(separatedBy: <span class="string">&quot;.&quot;</span>)</span><br><span class="line">    <span class="comment">// 判断字符串切割完是否为 4 部分</span></span><br><span class="line">    <span class="keyword">if</span> parts.count <span class="operator">!=</span> <span class="number">4</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">for</span> value <span class="keyword">in</span> parts &#123;</span><br><span class="line">            </span><br><span class="line">        <span class="comment">// 判断数字字符串是否以 0 开头</span></span><br><span class="line">        <span class="keyword">if</span> value.first <span class="operator">==</span> <span class="string">&quot;0&quot;</span>, value.count <span class="operator">&gt;</span> <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">        <span class="comment">// 字符串转换十进制数，转换失败取 -1</span></span><br><span class="line">        <span class="keyword">let</span> intValue <span class="operator">=</span> <span class="type">Int</span>(value) <span class="operator">??</span> <span class="operator">-</span><span class="number">1</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">// 判断是否在有效范围内 </span></span><br><span class="line">        <span class="keyword">guard</span> <span class="number">0</span><span class="operator">...</span><span class="number">255</span> <span class="operator">~=</span> intValue <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><div class="note info modern"><p><strong>IPv6 地址</strong><br><em>由 8 组 16 进制的数字来表示，每组表示 16 比特。用 <code>(&quot;:&quot;)</code> 分割</em><br><em>可以加入一些以 0 开头的数字，字母可以使用大写，也可以是小写</em><br><em>不能因为某个组的值为 0，而使用一个空的组，以至于出现 <code>(::)</code> 的情况</em><br><em>多余的 0 是不被允许的</em></p></div><div class="note success simple"><p>2001:0db8:85a3:0000:0000:8a2e:0370:7334</p></div><div class="note success simple"><p>2001:db8:85a3:0:0:8A2E:0370:7334</p></div><div class="note danger simple"><p>2001:0db8:85a3::8A2E:0370:7334</p></div><div class="note danger simple"><p>02001:0db8:85a3:0000:0000:8a2e:0370:7334</p></div><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isValidIPv6</span>(<span class="keyword">_</span> <span class="params">ip</span>: <span class="type">String</span>)</span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> parts <span class="operator">=</span> ip.components(separatedBy: <span class="string">&quot;:&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断字符串切割完是否为 8 部分</span></span><br><span class="line">    <span class="keyword">if</span> parts.count <span class="operator">!=</span> <span class="number">8</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> value <span class="keyword">in</span> parts &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断长度是否超过 4</span></span><br><span class="line">        <span class="keyword">if</span> value.count <span class="operator">&gt;</span> <span class="number">4</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 字符串转换为十六进制数，转换失败取 -1</span></span><br><span class="line">        <span class="keyword">let</span> intValue <span class="operator">=</span> <span class="type">Int</span>(value, radix: <span class="number">16</span>) <span class="operator">??</span> <span class="operator">-</span><span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断是否在有效范围内 </span></span><br><span class="line">        <span class="keyword">guard</span> <span class="number">0</span><span class="operator">...</span><span class="number">0xffff</span> <span class="operator">~=</span> intValue <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;    </span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+          <category> Swift </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift </tag>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>黑苹果</title>
+      <link href="/2020/07/24/hackintosh/"/>
+      <url>/2020/07/24/hackintosh/</url>
+      
+        <content type="html"><![CDATA[<p>一套基于微星 B360M 迫击炮主板的黑苹果配置及EFI <strong><a href="https://github.com/ZzzM/Hackintosh-MSI-B360M-MORTAR">🌟 GitHub</a></strong></p><h2 id="可用"><a href="#可用" class="headerlink" title="可用"></a>可用</h2><ul><li><input checked="" disabled="" type="checkbox"> 声卡</li><li><input checked="" disabled="" type="checkbox"> 显卡 / 硬解( H.264 &amp; HEVC )</li><li><input checked="" disabled="" type="checkbox"> WiFi &amp; 蓝牙, USB</li><li><input checked="" disabled="" type="checkbox"> 关机 &amp; 重启 </li><li><input checked="" disabled="" type="checkbox"> 睡眠 &amp; 唤醒</li><li><input checked="" disabled="" type="checkbox"> 隔空投送, 接力, SharePlay</li><li><input checked="" disabled="" type="checkbox"> App Store, FaceTime, iMessage </li></ul><h2 id="硬件-amp-配件"><a href="#硬件-amp-配件" class="headerlink" title="硬件 &amp; 配件"></a>硬件 &amp; 配件</h2><table><thead><tr><th align="left"></th><th align="left"></th></tr></thead><tbody><tr><td align="left">主板</td><td align="left">微星 B360M 迫击炮</td></tr><tr><td align="left">CPU</td><td align="left">Intel Core i5-9400F</td></tr><tr><td align="left">显卡</td><td align="left">蓝宝石 RX590 超白金极光特别版</td></tr><tr><td align="left">SSD</td><td align="left">海康威视 C2000 PRO 512GB</td></tr><tr><td align="left">内存</td><td align="left">宇瞻 黑豹系列 16GB(2x8GB) DDR4 2666Mhz C16</td></tr><tr><td align="left">电源</td><td align="left">振华 550W 80PLUS金牌战斗版</td></tr><tr><td align="left">WiFi &amp; 蓝牙</td><td align="left">奋威 FV-T919 BCM94360CD</td></tr><tr><td align="left">显示器</td><td align="left">AOC U2790PQU</td></tr><tr><td align="left">摄像头 &amp; 麦克风</td><td align="left">罗技 C920 PRO</td></tr><tr><td align="left">鼠标</td><td align="left">罗技 G PRO WIRELESS</td></tr><tr><td align="left">键盘</td><td align="left">Magic Keyboard</td></tr></tbody></table><h2 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h2><ul><li>设备</li></ul><table><thead><tr><th align="center">macOS 10.15.6</th><th align="center">CPU</th><th align="center">显卡</th></tr></thead><tbody><tr><td align="center"><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/Hackintosh-MSI-B360M-MORTAR/master/assets/001.png"></p>          </div> Hackintosh</td><td align="center">Intel Core i5-9400F</td><td align="center">AMD Radeon RX 590</td></tr><tr><td align="center"><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/Hackintosh-MSI-B360M-MORTAR/master/assets/002.png"></p>          </div> MacBook Pro (Retina, 15-inch, Mid 2015)</td><td align="center">Intel Core i7-4770HQ</td><td align="center">Intel Iris Pro</td></tr><tr><td align="center"><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/Hackintosh-MSI-B360M-MORTAR/master/assets/003.png"></p>          </div> MacBook Pro (16-inch, 2019)</td><td align="center">Intel Core i7-9750H</td><td align="center">① AMD Radeon Pro 5300M <br> ② Intel UHD Graphocs 630</td></tr></tbody></table><ul><li>结果</li></ul><table><thead><tr><th align="center">Geekbench 5.2.0</th><th align="right">单核</th><th align="right">多核</th><th align="right">OpenCL</th><th align="right">Metal</th></tr></thead><tbody><tr><td align="center">Hackintosh</td><td align="right">1025</td><td align="right">5118</td><td align="right">38203</td><td align="right">39163</td></tr><tr><td align="center">MacBook Pro (Retina, 15-inch, Mid 2015)</td><td align="right">821</td><td align="right">3303</td><td align="right">5152</td><td align="right">520</td></tr><tr><td align="center">MacBook Pro (16-inch, 2019)</td><td align="right">1073</td><td align="right">5425</td><td align="right">① 25241 <br> ② 5186</td><td align="right">① 23814 <br> ② 4718</td></tr></tbody></table><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul><li><p>可使用 <strong><a href="https://github.com/ic005k/QtOpenCoreConfig">OC Auxiliary Tools</a></strong> 更新 <strong>config.plist</strong> </p></li><li><p>调节 <strong>BIOS 设置</strong> 可以参考 <strong><a href="https://github.com/GeQ1an/MSI-B360M-MORTAR-HACKINTOSH-OPENCORE-EFI#%E4%BD%BF%E7%94%A8-efi">这里</a></strong></p></li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://github.com/andot/MSI-B360M-MORTAR-IMACPRO-EFI"><em>MSI-B360M-MORTAR-IMACPRO-EFI</em></a></li><li><a href="https://github.com/GeQ1an/MSI-B360M-MORTAR-HACKINTOSH-OPENCORE-EFI"><em>MSI-B360M-MORTAR-HACKINTOSH-OPENCORE-EFI</em></a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hackintosh </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+            <tag> Hackintosh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CalendarX</title>
+      <link href="/2020/07/07/calendarx/"/>
+      <url>/2020/07/07/calendarx/</url>
+      
+        <content type="html"><![CDATA[<p>一个显示日历、时间的 App</p><ul><li><input checked="" disabled="" type="checkbox"> 小组件</li><li><input checked="" disabled="" type="checkbox"> 暗黑主题</li><li><input checked="" disabled="" type="checkbox"> 在线升级</li></ul><p>🌟 <em><a href="https://github.com/ZzzM/LunarCalendar">GitHub</a></em></p><h1 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h1><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/LunarCalendar/master/previews/menu1.png"></p>          </div><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/LunarCalendar/master/previews/calendar1.png"><br><img src="https://raw.githubusercontent.com/ZzzM/LunarCalendar/master/previews/calendar2.png"><br><img src="https://raw.githubusercontent.com/ZzzM/LunarCalendar/master/previews/settings.png"></p>          </div><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/LunarCalendar/master/previews/widget.png"></p>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> App </category>
+          
+          <category> Swift </category>
+          
+          <category> SwiftUI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift </tag>
+            
+            <tag> SwiftUI </tag>
+            
+            <tag> App </tag>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Flutter Movies</title>
+      <link href="/2020/02/26/movies_flutter/"/>
+      <url>/2020/02/26/movies_flutter/</url>
+      
+        <content type="html"><![CDATA[<p>一个使用 Flutter 开发的电影资讯 App（ ⚠️ <strong>API 已不可用</strong> ）**<a href="https://github.com/ZzzM/Flutter-Movies">🌟 GitHub</a>**</p><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul><li><input checked="" disabled="" type="checkbox"> 主题切换</li><li><input checked="" disabled="" type="checkbox"> 国际化（简体中文、English）</li><li><input checked="" disabled="" type="checkbox"> 视频、图片下载</li><li><input checked="" disabled="" type="checkbox"> 视频播放</li></ul><h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul><li>设备需装有 <strong>iOS 12.0</strong> 或更高版本</li></ul><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/Flutter-Movies/master/previews/1.gif"><br><img src="https://raw.githubusercontent.com/ZzzM/Flutter-Movies/master/previews/2.gif"><br><img src="https://raw.githubusercontent.com/ZzzM/Flutter-Movies/master/previews/3.gif"><br><img src="https://raw.githubusercontent.com/ZzzM/Flutter-Movies/master/previews/4.gif"></p>          </div><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/Flutter-Movies/master/previews/5.gif"><br><img src="https://raw.githubusercontent.com/ZzzM/Flutter-Movies/master/previews/6.gif"><br><img src="https://raw.githubusercontent.com/ZzzM/Flutter-Movies/master/previews/7.gif"><br><img src="https://raw.githubusercontent.com/ZzzM/Flutter-Movies/master/previews/8.gif"></p>          </div><h2 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h2><ul><li>cached_network_image</li><li>dio</li><li>provider</li><li>package_info</li><li>webview_flutter</li><li>fluro</li><li>pull_to_refresh</li><li>shared_preferences</li><li>photo_view</li><li>video_player</li><li>chewie</li><li>share</li><li>flutter_staggered_grid_view</li><li>permission_handler</li><li>image_gallery_saver</li><li>flutter_staggered_animations</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> App </category>
+          
+          <category> Flutter </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> App </tag>
+            
+            <tag> Flutter </tag>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React Native Movies</title>
+      <link href="/2020/02/25/movies_rn/"/>
+      <url>/2020/02/25/movies_rn/</url>
+      
+        <content type="html"><![CDATA[<p>一个使用 React Native 开发的电影资讯 App（ ⚠️ <strong>API 已不可用</strong> ）**<a href="https://github.com/ZzzM/React-Native-Movies">🌟 GitHub</a>**</p><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul><li><input checked="" disabled="" type="checkbox"> 视频播放</li></ul><h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul><li>设备需装有 <strong>iOS 8.0</strong> 或更高版本</li></ul><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/React-Native-Movies/master/previews/preview_1.gif"><br><img src="https://raw.githubusercontent.com/ZzzM/React-Native-Movies/master/previews/preview_2.gif"></p>          </div><h2 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h2><ul><li><a href="https://github.com/react-native-training/react-native-elements">react-native-elements</a></li><li><a href="https://github.com/oblador/react-native-lightbox">react-native-lightbox</a></li><li><a href="https://github.com/yamill/react-native-orientation">react-native-orientation</a></li><li><a href="https://github.com/skv-headless/react-native-scrollable-tab-view">react-native-scrollable-tab-view</a></li><li><a href="https://github.com/crazycodeboy/react-native-splash-screen">react-native-splash-screen</a></li><li><a href="https://github.com/leecade/react-native-swiper">react-native-swiper</a></li><li><a href="https://github.com/oblador/react-native-vector-icons">react-native-vector-icons</a></li><li><a href="https://github.com/react-native-community/react-native-videor">react-native-video</a></li><li><a href="https://github.com/wix/react-native-navigation">react-navigation</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> App </category>
+          
+          <category> React Native </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> App </tag>
+            
+            <tag> Android </tag>
+            
+            <tag> React Native </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HostsX</title>
+      <link href="/2020/02/24/hostsx/"/>
+      <url>/2020/02/24/hostsx/</url>
+      
+        <content type="html"><![CDATA[<h3><a href="https://github.com/ZzzM/HostsX"><img class="inline-img" src="https://img.shields.io/github/stars/ZzzM/HostsX?style=social" /></a><a href="https://github.com/ZzzM/HostsX/releases/latest"><img class="inline-img" src="https://img.shields.io/github/v/release/ZzzM/HostsX" /></a> <a href="https://github.com/ZzzM/HostsX/releases/latest"><img class="inline-img" src="https://img.shields.io/github/release-date/ZzzM/HostsX" /></a> <a href="https://raw.githubusercontent.com/ZzzM/HostsX/master/LICENSE.md"><img class="inline-img" src="https://img.shields.io/github/license/ZzzM/HostsX" /></a></h3><p>一个用于更新本地 hosts 的轻量级 macOS App</p><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul><li><input checked="" disabled="" type="checkbox"> 国际化（简体中文、English）</li><li><input checked="" disabled="" type="checkbox"> 夜间模式</li></ul><h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><ul><li>设备需装有 <strong>macOS 10.12</strong> 或更高版本</li></ul><h2 id="版本记录"><a href="#版本记录" class="headerlink" title="版本记录"></a>版本记录</h2><ul><li><a href="https://github.com/ZzzM/HostsX/blob/master/CHANGELOG_SC.md">简体中文</a></li><li><a href="https://github.com/ZzzM/HostsX/blob/master/CHANGELOG.md">English</a></li></ul><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><ul><li><p>菜单</p><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/HostsToolforMac/master/assets/m1.png"><br><img src="https://raw.githubusercontent.com/ZzzM/HostsToolforMac/master/assets/m2.png"><br><img src="https://raw.githubusercontent.com/ZzzM/HostsToolforMac/master/assets/m3.png"></p>          </div></li><li><p>远程配置</p><div class="justified-gallery"><p><img src="https://raw.githubusercontent.com/ZzzM/HostsToolforMac/master/assets/r1.png"><br><img src="https://raw.githubusercontent.com/ZzzM/HostsToolforMac/master/assets/r2.png"><br><img src="https://raw.githubusercontent.com/ZzzM/HostsToolforMac/master/assets/r3.png"></p>          </div></li></ul><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul><li>在 <code># My Hosts Start</code> 和 <code># My Hosts End</code> 之间添加域名解析<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># My Hosts Start</span><br><span class="line"></span><br><span class="line">0.0.0.0 www.example0.com</span><br><span class="line">1.1.1.1 www.example1.com</span><br><span class="line">2.2.2.2 www.example2.com</span><br><span class="line"></span><br><span class="line"># My Hosts End</span><br></pre></td></tr></table></figure></li></ul><h2 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h2><ul><li>Sparkle</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> App </category>
+          
+          <category> Swift </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Swift </tag>
+            
+            <tag> App </tag>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
